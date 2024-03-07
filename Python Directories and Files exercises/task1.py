@@ -1,8 +1,15 @@
 import os
-path = 'g:\\testpath\\'
-print("Only directories:")
-print([ name for name in os.listdir(path) if os.path.isdir(os.path.join(path, name)) ])
-print("\nOnly files:")
-print([ name for name in os.listdir(path) if not os.path.isdir(os.path.join(path, name)) ])
-print("\nAll directories and files :")
-print([ name for name in os.listdir(path)])
+def listx(x):
+    directories = []
+    files = []
+
+    for item in os.listdir(x):
+        full = os.path.join(x, item)
+
+        if os.path.isdir(full):
+            directories.append(item)
+        else:
+            files.append(item)
+
+    return directories, files
+print(listx(y))
